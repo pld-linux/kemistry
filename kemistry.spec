@@ -5,18 +5,16 @@ Version:	0.7
 Release:	1
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/kemistry/%{name}-%{version}.tar.bz2
 # Source0-md5:	daa7c379a7ac6a866fe0c63f021bbd7e
 URL:		http://kemistry.sourceforge.net/
-BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRequires:	kdesdk-po2xml
+BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	openbabel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 Kemistry is a collection of chemical applications for the K Desktop
@@ -40,7 +38,7 @@ aplikacje:
 Summary:	Molecular structure drawing program based on XDrawChem
 Summary(pl):	Program do rysowania struktury molekularnej, bazowany na XDrawChem
 Group:		X11/Applications/Science
-Requires:	kemistry = %{version}
+Requires:	%{name} = %{version}-%{release}
 Provides:	kdrawchem
 
 %description kdrawchem
@@ -53,7 +51,7 @@ Program do rysowania struktury molekularnej, oparty na XDrawChem.
 Summary:	Conversion program for chemical file formats
 Summary(pl):	Program do konwersji miêdzy chemicznymi formatami plików
 Group:		X11/Applications/Science
-Requires:	kemistry = %{version}
+Requires:	%{name} = %{version}-%{release}
 Provides:	kembabel
 
 %description kembabel
@@ -67,7 +65,7 @@ Open Babel.
 Summary:	Molecular weight calculator
 Summary(pl):	Kalkulator wagi molowej
 Group:		X11/Applications/Science
-Requires:	kemistry = %{version}
+Requires:	%{name} = %{version}-%{release}
 Provides:	kmolcalc
 
 %description kmolcalc
@@ -80,9 +78,7 @@ Kalkulator wagi molowej.
 %setup -q
 
 %build
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
-rm -f missing
+kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 cp -f /usr/share/automake/config.sub admin
 %configure \
 	--with-qt-libraries=%{_libdir}
@@ -114,18 +110,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README ChangeLog* openbabel/CHANGES.openbabel
-%{_pixmapsdir}/*/*/*/kemistry.png
-%attr(755,root,root) %{_libdir}/libopenbabel_kemistry.*
-%attr(755,root,root) %{_libdir}/libkemistry.*
+%attr(755,root,root) %{_libdir}/libopenbabel_kemistry.so*
+%attr(755,root,root) %{_libdir}/libkemistry.so*
+%{_iconsdir}/*/*/*/kemistry.png
 
 %files kdrawchem -f kdrawchem.lang
 %defattr(644,root,root,755)
 %doc kdrawchem/ChangeLog
 %attr(755,root,root) %{_bindir}/kdrawchem
-%attr(755,root,root) %{_libdir}/libkdrawchem.*
+%attr(755,root,root) %{_libdir}/libkdrawchem.so*
 %dir %{_datadir}/apps/kdrawchem/*
 %dir %{_datadir}/apps/kdrawchem/rings/*.cml
-%{_pixmapsdir}/*/*/*/kdrawchem.png
+%{_iconsdir}/*/*/*/kdrawchem.png
 %{_desktopdir}/kdrawchem.desktop
 
 %files kembabel -f kembabel.lang
