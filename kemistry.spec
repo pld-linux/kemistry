@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	e6355c1ba978b5f1fc95a193b7fda8c2
 Patch0:		%{name}-shared_openbabel.patch
 URL:		http://kemistry.sourceforge.net/
 BuildRequires:	autoconf
