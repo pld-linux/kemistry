@@ -2,7 +2,7 @@ Summary:	A collection of chemical applications for KDE
 Summary(pl):	Kolekcja aplikacji chemicznych dla KDE
 Name:		kemistry
 Version:	0.7
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://dl.sourceforge.net/kemistry/%{name}-%{version}.tar.bz2
