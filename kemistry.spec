@@ -3,8 +3,8 @@ Summary(pl):	Kolekcja aplikacji chemicznych dla KDE
 Name:		kemistry
 Version:	0.6
 Release:	1
-Group:		X11/Applications/Science
 License:	GPL
+Group:		X11/Applications/Science
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 URL:		http://kemistry.sourceforge.net/
 BuildRequires:	fam-devel
