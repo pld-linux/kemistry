@@ -32,14 +32,14 @@ Environment. The included applications are:
 Kemistry jest kolekcj± aplikacji chemicznych dla KDE. Zawiera
 aplikacje:
  - KMolCalc - kalkulator wagi molowej,
- - KemBabel - program do konwersji miêdzy chemicznymi formatami plików,
-   bazowany na Open Babel,
- - KDrawchem - program do rysowania struktury molekularnej, bazowany na
+ - KemBabel - program do konwersji miêdzy chemicznymi formatami
+   plików, oparty na Open Babel,
+ - KDrawchem - program do rysowania struktury molekularnej, oparty na
    XDrawChem.
 
 %package kdrawchem
-Summary:	molecular structure drawing program based on XDrawChem
-Summary(pl):	program do rysowania struktury molekularnej, bazowany na XDrawChem
+Summary:	Molecular structure drawing program based on XDrawChem
+Summary(pl):	Program do rysowania struktury molekularnej, bazowany na XDrawChem
 Group:		X11/Applications/Science
 Requires:	kemistry = %{version}
 Provides:	kdrawchem
@@ -48,11 +48,11 @@ Provides:	kdrawchem
 A molecular structure drawing program based on XDrawChem.
 
 %description kdrawchem -l pl
-Program do rysowania struktury molekularnej, bazowany na XDrawChem.
+Program do rysowania struktury molekularnej, oparty na XDrawChem.
 
 %package kembabel
-Summary:	conversion program for chemical file formats
-Summary(pl):	program do konwersji miêdzy chemicznymi formatami plików
+Summary:	Conversion program for chemical file formats
+Summary(pl):	Program do konwersji miêdzy chemicznymi formatami plików
 Group:		X11/Applications/Science
 Requires:	kemistry = %{version}
 Provides:	kembabel
@@ -61,12 +61,12 @@ Provides:	kembabel
 A conversion program for chemical file formats based on Open Babel.
 
 %description kembabel -l pl
-Program do konwersji miêdzy chemicznymi formatami plików, bazowany na
+Program do konwersji miêdzy chemicznymi formatami plików, oparty na
 Open Babel.
 
 %package kmolcalc
-Summary:	molecular weight calculator
-Summary(pl):	kalkulator wagi molowej
+Summary:	Molecular weight calculator
+Summary(pl):	Kalkulator wagi molowej
 Group:		X11/Applications/Science
 Requires:	kemistry = %{version}
 Provides:	kmolcalc
