@@ -8,10 +8,12 @@ Group:		X11/Applications/Science
 Source0:	http://dl.sourceforge.net/kemistry/%{name}-%{version}.tar.bz2
 # Source0-md5:	daa7c379a7ac6a866fe0c63f021bbd7e
 URL:		http://kemistry.sourceforge.net/
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRequires:	kdesdk-po2xml
+BuildRequires:	libtool
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	openbabel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -77,9 +79,21 @@ Kalkulator wagi molowej.
 %prep
 %setup -q
 
+# kill libtool.m4
+# -Wbad-function-cast (invalid in C++) causes -fPIC misdetection
+head -n 4875 acinclude.m4 | grep -v Wbad-function-cast > acinclude.m4.tmp
+mv -f acinclude.m4.tmp acinclude.m4
+
 %build
 kde_htmldir="%{_kdedocdir}"; export kde_htmldir
-cp -f /usr/share/automake/config.sub admin
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+%{__perl} admin/am_edit
+# doesn't work with am > 1.6
+#%{__make} -f admin/Makefile.common cvs
 %configure \
 	--with-qt-libraries=%{_libdir}
 %{__make}
@@ -112,6 +126,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog* openbabel/CHANGES.openbabel
 %attr(755,root,root) %{_libdir}/libopenbabel_kemistry.so*
 %attr(755,root,root) %{_libdir}/libkemistry.so*
+%{_libdir}/libopenbabel_kemistry.la
+%{_libdir}/libkemistry.la
 %{_iconsdir}/*/*/*/kemistry.png
 
 %files kdrawchem -f kdrawchem.lang
@@ -119,6 +135,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc kdrawchem/ChangeLog
 %attr(755,root,root) %{_bindir}/kdrawchem
 %attr(755,root,root) %{_libdir}/libkdrawchem.so*
+%{_libdir}/libkdrawchem.la
 %dir %{_datadir}/apps/kdrawchem/*
 %dir %{_datadir}/apps/kdrawchem/rings/*.cml
 %{_iconsdir}/*/*/*/kdrawchem.png
@@ -129,6 +146,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc kembabel/ChangeLog
 %attr(755,root,root) %{_bindir}/kembabel
 %{_datadir}/mimelnk/chemical/*openbabel*
+%{_iconsdir}/*/*/*/kembabel.png
 %{_desktopdir}/kembabel.desktop
 
 %files kmolcalc -f kmolcalc.lang
@@ -136,5 +154,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc kmolcalc/ChangeLog
 %attr(755,root,root) %{_bindir}/kmolcalc
 %dir %{_datadir}/apps/kmolcalc/*
-%{_pixmapsdir}/*/*/*/kmolcalc.png
+%{_iconsdir}/*/*/*/kmolcalc.png
 %{_desktopdir}/kmolcalc.desktop
