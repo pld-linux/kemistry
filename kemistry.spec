@@ -2,14 +2,19 @@ Summary:	A collection of chemical applications for KDE
 Summary(pl):	Kolekcja aplikacji chemicznych dla KDE
 Name:		kemistry
 Version:	0.6
-Release:	1
+Release:	2
+Release:	2
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-shared_openbabel.patch
 URL:		http://kemistry.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRequires:	kdesdk
+Requires:	openbabel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -75,11 +80,13 @@ Kalkulator wagi molowej.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
-
+rm -f missing
+%{__make} -f Makefile.cvs
 %configure
 
 %{__make}
@@ -91,6 +98,8 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 mv $RPM_BUILD_ROOT%{_applnkdir}/{Applications/Kemistry/*,Scientific/Chemistry}
+
+cp openbabel/ChangeLog ChangeLog.openbabel
 
 %find_lang kdrawchem	--with-kde
 %find_lang kembabel	--with-kde
@@ -107,16 +116,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README ChangeLog
+%doc README ChangeLog* openbabel/CHANGES.openbabel
 %{_pixmapsdir}/*/*/*/kemistry.png
 %attr(755,root,root) %{_libdir}/libopenbabel_kemistry.*
 
-# This should be from openbabel:
-%attr(755,root,root) %{_bindir}/babel
-%{_datadir}/apps/openbabel/*.txt
-
 %files kdrawchem -f kdrawchem.lang
 %defattr(644,root,root,755)
+%doc kdrawchem/ChangeLog
 %attr(755,root,root) %{_bindir}/kdrawchem
 %attr(755,root,root) %{_libdir}/libkdrawchem.*
 %dir %{_datadir}/apps/kdrawchem/*
@@ -126,12 +132,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files kembabel -f kembabel.lang
 %defattr(644,root,root,755)
+%doc kembabel/ChangeLog
 %attr(755,root,root) %{_bindir}/kembabel
 %{_datadir}/mimelnk/chemical/*openbabel*
 %{_applnkdir}/Scientific/Chemistry/kembabel.desktop
 
 %files kmolcalc -f kmolcalc.lang
 %defattr(644,root,root,755)
+%doc kmolcalc/ChangeLog
 %attr(755,root,root) %{_bindir}/kmolcalc
 %dir %{_datadir}/apps/kmolcalc/*
 %{_pixmapsdir}/*/*/*/kmolcalc.png
