@@ -136,8 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kdrawchem
 %attr(755,root,root) %{_libdir}/libkdrawchem.so*
 %{_libdir}/libkdrawchem.la
-%dir %{_datadir}/apps/kdrawchem/*
-%dir %{_datadir}/apps/kdrawchem/rings/*.cml
+%{_datadir}/apps/kdrawchem
 %{_iconsdir}/*/*/*/kdrawchem.png
 %{_desktopdir}/kdrawchem.desktop
 
