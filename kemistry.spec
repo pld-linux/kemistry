@@ -1,19 +1,18 @@
 Summary:	A collection of chemical applications for KDE
 Summary(pl):	Kolekcja aplikacji chemicznych dla KDE
 Name:		kemistry
-Version:	0.6
-Release:	2
+Version:	0.7
+Release:	1
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	e6355c1ba978b5f1fc95a193b7fda8c2
-Patch0:		%{name}-shared_openbabel.patch
+# Source0-md5:	daa7c379a7ac6a866fe0c63f021bbd7e
 URL:		http://kemistry.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel >= 3.0.3
-BuildRequires:	kdesdk
+BuildRequires:	kdesdk-po2xml
 Requires:	openbabel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -78,25 +77,24 @@ A molecular weight calculator.
 Kalkulator wagi molowej.
 
 %prep
-%setup -q -n %{name}
-%patch0 -p1
+%setup -q
 
 %build
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 rm -f missing
-%{__make} -f Makefile.cvs
-%configure
-
+cp -f /usr/share/automake/config.sub admin
+%configure \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
+install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-mv $RPM_BUILD_ROOT%{_applnkdir}/{Applications/Kemistry/*,Scientific/Chemistry}
+mv $RPM_BUILD_ROOT{%{_datadir}/applnk/Applications/Kemistry/*,%{_desktopdir}}
 
 cp openbabel/ChangeLog ChangeLog.openbabel
 
@@ -118,6 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README ChangeLog* openbabel/CHANGES.openbabel
 %{_pixmapsdir}/*/*/*/kemistry.png
 %attr(755,root,root) %{_libdir}/libopenbabel_kemistry.*
+%attr(755,root,root) %{_libdir}/libkemistry.*
 
 %files kdrawchem -f kdrawchem.lang
 %defattr(644,root,root,755)
@@ -127,14 +126,14 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/apps/kdrawchem/*
 %dir %{_datadir}/apps/kdrawchem/rings/*.cml
 %{_pixmapsdir}/*/*/*/kdrawchem.png
-%{_applnkdir}/Scientific/Chemistry/kdrawchem.desktop
+%{_desktopdir}/kdrawchem.desktop
 
 %files kembabel -f kembabel.lang
 %defattr(644,root,root,755)
 %doc kembabel/ChangeLog
 %attr(755,root,root) %{_bindir}/kembabel
 %{_datadir}/mimelnk/chemical/*openbabel*
-%{_applnkdir}/Scientific/Chemistry/kembabel.desktop
+%{_desktopdir}/kembabel.desktop
 
 %files kmolcalc -f kmolcalc.lang
 %defattr(644,root,root,755)
@@ -142,4 +141,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kmolcalc
 %dir %{_datadir}/apps/kmolcalc/*
 %{_pixmapsdir}/*/*/*/kmolcalc.png
-%{_applnkdir}/Scientific/Chemistry/kmolcalc.desktop
+%{_desktopdir}/kmolcalc.desktop
