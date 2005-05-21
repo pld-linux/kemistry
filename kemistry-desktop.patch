@@ -1,0 +1,80 @@
+--- kemistry-0.7/kdrawchem/kdrawchem.desktop~	2005-05-21 09:13:13.000000000 +0200
++++ kemistry-0.7/kdrawchem/kdrawchem.desktop	2005-05-21 09:17:24.000000000 +0200
+@@ -5,12 +5,12 @@
+ Exec=kdrawchem -caption "%c" %i %m  
+ Icon=kdrawchem
+ MimeType=text/xml;text/plain;chemical/x-openbabel-input;chemical/x-alchemy;chemical/x-daylight-smiles;chemical/x-macromodel-input;chemical/x-mdl-molfile;chemical/x-mdl-sdfile;chemical/x-mopac-input;chemical/x-pdb;chemical/x-xyz;chemical/x-cml
+-
+ DocPath=kdrawchem/index.html
+-Comment=
+-Comment[de]=
+-Terminal=0
++Comment=Molecular structure drawing program
++Comment[pl]=Program do rysowania struktury cząsteczek
++Terminal=false
+ Name=KDrawChem
+ Name[de]=KDrawChem
+ ServiceTypes=Browser/View
+ X-KDE-Library=libkdrawchem
++Categories=Qt;KDE;Education;Science;Chemestry;
+--- kemistry-0.7/kdrawchem/xdc.desktop~	2005-05-21 09:23:33.000000000 +0200
++++ kemistry-0.7/kdrawchem/xdc.desktop	2005-05-21 09:26:16.000000000 +0200
+@@ -4,5 +4,6 @@
+ MimeType=chemical/x-xdc
+ Comment=XDrawChem/KDrawChem Native Format
+ Comment[it]=Formato nativo di XDrawChem/KDrawChem
++Comment[pl]=Format wewnętrzny XDrawChem/KDrawChem
+ Patterns=*.xdc
+-
++Encoding=UTF-8
+--- kemistry-0.7/kembabel/kembabel.desktop~	2005-05-21 09:25:19.000000000 +0200
++++ kemistry-0.7/kembabel/kembabel.desktop	2005-05-21 09:28:16.000000000 +0200
+@@ -1,12 +1,12 @@
+ [Desktop Entry]
+ Type=Application
+-Comment=GUI Front End for Open Babel
+-Comment[it]=Interfaccia grafica per Open Babel
+-Name=Chemical format conversion program
+-Name[it]=Programma di conversione tra formati chimici
++Name=KemBabel
++Comment=Chemical format conversion program
++Comment[it]=Programma di conversione tra formati chimici
++Comment[pl]=Program do konwersji formatów chemicznych
+ Exec=kembabel
+ Icon=kembabel
+-Terminal=0
++Terminal=false
++Encoding=UTF-8
+ DocPath=kembabel/index.html
+-
+-
++Categories=Qt;KDE;Education;Science;Chemestry;
+--- kemistry-0.7/kfile_plugins/kfile_openbabel.desktop~	2005-05-21 09:29:33.000000000 +0200
++++ kemistry-0.7/kfile_plugins/kfile_openbabel.desktop	2005-05-21 09:29:33.000000000 +0200
+@@ -3,6 +3,7 @@
+ Type=Service
+ Name=Chemical files info
+ Name[it]=Informazioni file chimici
++Name[pl]=Informacje o plikach chemicznych
+ ServiceTypes=KFilePlugin
+ X-KDE-Library=kfile_openbabel
+ MimeType=chemical/x.alchemy;chemical/x-cml;chemical/x-macromodel-input;chemical/x-mdl-molfile;chemical/x-mdl-sdfile;chemical/x-mopac-input;chemical/x-pdb;chemical/x-daylight-smiles;chemical/x-mol2;chemical/x-xyz;chemical/x-openbabel-input;
+--- kemistry-0.7/kmolcalc/kmolcalc.desktop~	2005-05-21 09:28:41.000000000 +0200
++++ kemistry-0.7/kmolcalc/kmolcalc.desktop	2005-05-21 09:30:30.000000000 +0200
+@@ -3,11 +3,11 @@
+ Type=Application
+ Comment=A molecular weight calculator
+ Comment[it]=Un calcolatore di peso molecolare
+-Name=Molecular weight calculator
+-Name[it]=Calcolatore peso molecolare
++Comment[pl]=Kalkulator wagi molowej
++Name=KMolCalc
+ Exec=kmolcalc
+ Icon=kmolcalc
+-Terminal=0
++Terminal=false
++Encoding=UTF-8
+ DocPath=kmolcalc/index.html
+-
+-
++Categories=Qt;KDE;Education;Science;Chemestry;
