@@ -2,7 +2,7 @@ Summary:	A collection of chemical applications for KDE
 Summary(pl):	Kolekcja aplikacji chemicznych dla KDE
 Name:		kemistry
 Version:	0.7
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://dl.sourceforge.net/kemistry/%{name}-%{version}.tar.bz2
@@ -22,19 +22,20 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Kemistry is a collection of chemical applications for the K Desktop
 Environment. The included applications are:
 
-- KMolCalc - a molecular weight calculator
+- KMolCalc - a molecular weight calculator,
 - KemBabel - a conversion program for chemical file formats based on
-  Open Babel
-- KDrawchem - a molecular structure drawing program based on XDrawChem
+  Open Babel,
+- KDrawchem - a molecular structure drawing program based on XDrawChem.
 
 %description -l pl
 Kemistry jest kolekcj± aplikacji chemicznych dla KDE. Zawiera
 aplikacje:
- - KMolCalc - kalkulator wagi molowej,
- - KemBabel - program do konwersji miêdzy chemicznymi formatami
-   plików, oparty na Open Babel,
- - KDrawchem - program do rysowania struktury molekularnej, oparty na
-   XDrawChem.
+
+- KMolCalc - kalkulator wagi molowej,
+- KemBabel - program do konwersji miêdzy chemicznymi formatami
+  plików, oparty na Open Babel,
+- KDrawchem - program do rysowania struktury molekularnej, oparty na
+  XDrawChem.
 
 %package kdrawchem
 Summary:	Molecular structure drawing program based on XDrawChem
