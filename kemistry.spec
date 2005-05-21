@@ -2,11 +2,12 @@ Summary:	A collection of chemical applications for KDE
 Summary(pl):	Kolekcja aplikacji chemicznych dla KDE
 Name:		kemistry
 Version:	0.7
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://dl.sourceforge.net/kemistry/%{name}-%{version}.tar.bz2
 # Source0-md5:	daa7c379a7ac6a866fe0c63f021bbd7e
+Patch0:		%{name}-desktop.patch
 URL:		http://kemistry.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -79,6 +80,7 @@ Kalkulator wagi molowej.
 
 %prep
 %setup -q
+%patch0 -p1
 
 # kill libtool.m4
 # -Wbad-function-cast (invalid in C++) causes -fPIC misdetection
