@@ -12,6 +12,7 @@ URL:		http://kemistry.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fam-devel
+BuildRequires:	gettext-devel
 BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRequires:	kdesdk-po2xml
 BuildRequires:	libtool
