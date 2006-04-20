@@ -16,7 +16,7 @@
  Name[de]=KDrawChem
  ServiceTypes=Browser/View
  X-KDE-Library=libkdrawchem
-+Categories=Qt;KDE;Education;Science;Chemestry;
++Categories=Qt;KDE;Education;Science;Chemistry;
 --- kemistry-0.7/kdrawchem/xdc.desktop~	2005-05-21 09:23:33.000000000 +0200
 +++ kemistry-0.7/kdrawchem/xdc.desktop	2005-05-21 09:26:16.000000000 +0200
 @@ -4,5 +4,6 @@
@@ -48,7 +48,7 @@
  DocPath=kembabel/index.html
 -
 -
-+Categories=Qt;KDE;Education;Science;Chemestry;
++Categories=Qt;KDE;Education;Science;Chemistry;
 --- kemistry-0.7/kfile_plugins/kfile_openbabel.desktop~	2005-05-21 09:29:33.000000000 +0200
 +++ kemistry-0.7/kfile_plugins/kfile_openbabel.desktop	2005-05-21 09:29:33.000000000 +0200
 @@ -3,6 +3,7 @@
@@ -77,4 +77,4 @@
  DocPath=kmolcalc/index.html
 -
 -
-+Categories=Qt;KDE;Education;Science;Chemestry;
++Categories=Qt;KDE;Education;Science;Chemistry;
