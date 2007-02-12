@@ -1,5 +1,5 @@
 Summary:	A collection of chemical applications for KDE
-Summary(pl):	Kolekcja aplikacji chemicznych dla KDE
+Summary(pl.UTF-8):   Kolekcja aplikacji chemicznych dla KDE
 Name:		kemistry
 Version:	0.7
 Release:	5
@@ -29,19 +29,19 @@ Environment. The included applications are:
   Open Babel,
 - KDrawchem - a molecular structure drawing program based on XDrawChem.
 
-%description -l pl
-Kemistry jest kolekcj± aplikacji chemicznych dla KDE. Zawiera
+%description -l pl.UTF-8
+Kemistry jest kolekcjÄ… aplikacji chemicznych dla KDE. Zawiera
 aplikacje:
 
 - KMolCalc - kalkulator wagi molowej,
-- KemBabel - program do konwersji miêdzy chemicznymi formatami
-  plików, oparty na Open Babel,
+- KemBabel - program do konwersji miÄ™dzy chemicznymi formatami
+  plikÃ³w, oparty na Open Babel,
 - KDrawchem - program do rysowania struktury molekularnej, oparty na
   XDrawChem.
 
 %package kdrawchem
 Summary:	Molecular structure drawing program based on XDrawChem
-Summary(pl):	Program do rysowania struktury molekularnej, bazowany na XDrawChem
+Summary(pl.UTF-8):   Program do rysowania struktury molekularnej, bazowany na XDrawChem
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}-%{release}
 Provides:	kdrawchem
@@ -49,12 +49,12 @@ Provides:	kdrawchem
 %description kdrawchem
 A molecular structure drawing program based on XDrawChem.
 
-%description kdrawchem -l pl
+%description kdrawchem -l pl.UTF-8
 Program do rysowania struktury molekularnej, oparty na XDrawChem.
 
 %package kembabel
 Summary:	Conversion program for chemical file formats
-Summary(pl):	Program do konwersji miêdzy chemicznymi formatami plików
+Summary(pl.UTF-8):   Program do konwersji miÄ™dzy chemicznymi formatami plikÃ³w
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}-%{release}
 Provides:	kembabel
@@ -62,13 +62,13 @@ Provides:	kembabel
 %description kembabel
 A conversion program for chemical file formats based on Open Babel.
 
-%description kembabel -l pl
-Program do konwersji miêdzy chemicznymi formatami plików, oparty na
+%description kembabel -l pl.UTF-8
+Program do konwersji miÄ™dzy chemicznymi formatami plikÃ³w, oparty na
 Open Babel.
 
 %package kmolcalc
 Summary:	Molecular weight calculator
-Summary(pl):	Kalkulator wagi molowej
+Summary(pl.UTF-8):   Kalkulator wagi molowej
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}-%{release}
 Provides:	kmolcalc
@@ -76,7 +76,7 @@ Provides:	kmolcalc
 %description kmolcalc
 A molecular weight calculator.
 
-%description kmolcalc -l pl
+%description kmolcalc -l pl.UTF-8
 Kalkulator wagi molowej.
 
 %prep
