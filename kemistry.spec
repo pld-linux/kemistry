@@ -1,5 +1,5 @@
 Summary:	A collection of chemical applications for KDE
-Summary(pl.UTF-8):   Kolekcja aplikacji chemicznych dla KDE
+Summary(pl.UTF-8):	Kolekcja aplikacji chemicznych dla KDE
 Name:		kemistry
 Version:	0.7
 Release:	5
@@ -41,7 +41,7 @@ aplikacje:
 
 %package kdrawchem
 Summary:	Molecular structure drawing program based on XDrawChem
-Summary(pl.UTF-8):   Program do rysowania struktury molekularnej, bazowany na XDrawChem
+Summary(pl.UTF-8):	Program do rysowania struktury molekularnej, bazowany na XDrawChem
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}-%{release}
 Provides:	kdrawchem
@@ -54,7 +54,7 @@ Program do rysowania struktury molekularnej, oparty na XDrawChem.
 
 %package kembabel
 Summary:	Conversion program for chemical file formats
-Summary(pl.UTF-8):   Program do konwersji między chemicznymi formatami plików
+Summary(pl.UTF-8):	Program do konwersji między chemicznymi formatami plików
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}-%{release}
 Provides:	kembabel
@@ -68,7 +68,7 @@ Open Babel.
 
 %package kmolcalc
 Summary:	Molecular weight calculator
-Summary(pl.UTF-8):   Kalkulator wagi molowej
+Summary(pl.UTF-8):	Kalkulator wagi molowej
 Group:		X11/Applications/Science
 Requires:	%{name} = %{version}-%{release}
 Provides:	kmolcalc
